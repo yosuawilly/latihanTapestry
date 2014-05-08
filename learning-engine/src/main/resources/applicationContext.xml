@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="false">
+
+    <!-- Activates scanning of @Autowired -->
+    <context:annotation-config/>
+
+    <!-- Activates scanning of @Repository and @Service -->
+    <context:component-scan base-package="com.learning.engine"/>
+    <!--<context:component-scan base-package="com.dwidasa.interlink"/>-->
+
+    <!--<bean id="serviceLocator" class="com.dwidasa.engine.service.ServiceLocator"/>-->
+    
+    <!-- Remark this for ib-engine admin -->                  
+    <!--<bean id="messageReceiverService" class="com.dwidasa.engine.service.MessageReceiverService"/>
+    <bean id="isoDigester" class="com.dwidasa.engine.util.iso.IsoDigester" factory-method="getInstance"
+          init-method="load"/>-->
+    <!-- End of remark this for ib-engine admin -->      
+          
+          
+    <bean id="client" class="com.sun.jersey.api.client.Client" factory-method="create"/>
+
+    <!-- Asynch task executor framework -->
+    <!--<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="5"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="queueCapacity" value="100"/>
+        <property name="waitForTasksToCompleteOnShutdown" value="true"/>
+    </bean>-->
+
+    <!-- Mail: Sender and Velocity configuration -->
+    <!--<bean id="mailEngine" class="com.dwidasa.engine.service.MailEngine">
+        <property name="mailSender" ref="mailSender"/>
+        <property name="velocityEngine" ref="velocityEngine"/>
+        <property name="taskExecutor" ref="taskExecutor"/>
+        <property name="defaultFrom" value="pactindo@gmail.com"/>
+    </bean>-->
+
+	<!--<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="465"/>
+        <property name="protocol" value="smtps"/>
+        <property name="username" value="pactindo@gmail.com"/>
+        <property name="password" value="pactindo123"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtps.auth">true</prop>
+                <prop key="mail.smtps.starttls.enable">true</prop>
+                <prop key="mail.smtps.debug">true</prop>
+            </props>
+        </property>
+    </bean>-->
+<!--     
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="172.17.104.19"/>
+        <property name="port" value="25"/>
+        <property name="protocol" value="smtp"/>
+    </bean>
+-->
+    <!--<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <props>
+                <prop key="resource.loader">class</prop>
+                <prop key="class.resource.loader.class">
+                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage" scope="prototype">
+        <property name="from" value="pactindo@gmail.com"/>
+    </bean>-->
+</beans>
