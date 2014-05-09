@@ -3,6 +3,7 @@ package com.learning.engine.dao.impl;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.learning.engine.dao.SiswaDao;
@@ -41,7 +42,12 @@ public class SiswaDaoImpl extends GenericDaoImpl<Siswa, String> implements Siswa
         .append("from siswa sis ")
         .append("where sis.username = ? ");
 
-        return getSimpleJdbcTemplate().queryForObject(sql.toString(), defaultMapper, username);
+        try {
+			return getSimpleJdbcTemplate().queryForObject(sql.toString(), defaultMapper, username);
+		} catch (EmptyResultDataAccessException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

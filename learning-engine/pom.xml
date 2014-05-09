@@ -4,6 +4,7 @@
 	<groupId>com.learning</groupId>
 	<artifactId>learning-engine</artifactId>
 	<version>1.0.0-LEARNING</version>
+	<packaging>jar</packaging>
 	<name>learning-engine</name>
 	<url>http://maven.apache.org</url>
 	
