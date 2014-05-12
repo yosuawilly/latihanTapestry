@@ -24,6 +24,7 @@ import org.slf4j.Logger;
 import com.learning.engine.BusinessException;
 import com.learning.engine.json.PojoJsonMapper;
 import com.server.learning.services.impl.AuthenticationResourceImpl;
+import com.server.learning.services.impl.LearningResourceImpl;
 
 /**
  * This module is automatically included as part of the Tapestry IoC Registry, it's a good place to
@@ -40,10 +41,12 @@ public class AppModule
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
     	binder.bind(AuthenticationResource.class, AuthenticationResourceImpl.class);
+    	binder.bind(LearningResource.class, LearningResourceImpl.class);
     }
     
     public static void contributeApplication(Configuration<Object> singletons, ObjectLocator locator) {
     	singletons.add(locator.getService(AuthenticationResource.class));
+    	singletons.add(locator.getService(LearningResource.class));
     }
     
     @Match("*Resource")
