@@ -3,13 +3,12 @@ package com.learning.engine.dao.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Component;
 
 import com.learning.engine.model.Siswa;
 
 @Component("siswaMapper")
-public class SiswaMapper extends ChainedRowMapper<Siswa> implements ParameterizedRowMapper<Siswa>{
+public class SiswaMapper extends ChainedRowMapper<Siswa>{
 
 	@Override
 	public Siswa chainRow(ResultSet rs, int index) throws SQLException {

@@ -2,25 +2,16 @@ package com.learning.engine.model;
 
 import java.io.Serializable;
 
-public class JawabanQuiz implements Serializable{
+public class JawabanQuiz extends BaseObject implements Serializable{
 	
 	private static final long serialVersionUID = 986140528531604839L;
 	
-	private long idJawaban;
 	private String jawaban;
 	private Quiz quiz;
 	private boolean benar;
 	
 	public JawabanQuiz() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public long getIdJawaban() {
-		return idJawaban;
-	}
-
-	public void setIdJawaban(long idJawaban) {
-		this.idJawaban = idJawaban;
 	}
 
 	public String getJawaban() {

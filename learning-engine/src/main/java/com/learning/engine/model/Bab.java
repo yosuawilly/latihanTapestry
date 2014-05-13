@@ -1,27 +1,18 @@
 package com.learning.engine.model;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
-public class Bab implements Serializable{
+public class Bab extends BaseObject implements Serializable{
 	
 	private static final long serialVersionUID = -451632702176978958L;
 	
-	private long idBab;
 	private String labelBab;
 	private String judulBab;
-	private Set<Materi> materis;
+	private List<Materi> materis;
 	
 	public Bab() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public long getIdBab() {
-		return idBab;
-	}
-
-	public void setIdBab(long idBab) {
-		this.idBab = idBab;
 	}
 
 	public String getLabelBab() {
@@ -40,11 +31,11 @@ public class Bab implements Serializable{
 		this.judulBab = judulBab;
 	}
 	
-	public Set<Materi> getMateris() {
+	public List<Materi> getMateris() {
 		return materis;
 	}
 	
-	public void setMateris(Set<Materi> materis) {
+	public void setMateris(List<Materi> materis) {
 		this.materis = materis;
 	}
 

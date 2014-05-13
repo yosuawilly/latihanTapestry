@@ -1,30 +1,21 @@
 package com.learning.engine.model;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
-public class Materi implements Serializable{
+public class Materi extends BaseObject implements Serializable{
 	
 	private static final long serialVersionUID = 8210937082613070619L;
 	
-	private long idMateri;
 	private String judul;
 	private String isiMateri;
 	private Bab bab;
 	private int semester;
 	private String url;
-	private Set<MateriLinkVideo> materiLinkVideos;
+	private List<MateriLinkVideo> materiLinkVideos;
 	
 	public Materi() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public long getIdMateri() {
-		return idMateri;
-	}
-
-	public void setIdMateri(long idMateri) {
-		this.idMateri = idMateri;
 	}
 
 	public String getJudul() {
@@ -67,11 +58,11 @@ public class Materi implements Serializable{
 		this.url = url;
 	}
 	
-	public Set<MateriLinkVideo> getMateriLinkVideos() {
+	public List<MateriLinkVideo> getMateriLinkVideos() {
 		return materiLinkVideos;
 	}
 	
-	public void setMateriLinkVideos(Set<MateriLinkVideo> materiLinkVideos) {
+	public void setMateriLinkVideos(List<MateriLinkVideo> materiLinkVideos) {
 		this.materiLinkVideos = materiLinkVideos;
 	}
 	

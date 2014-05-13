@@ -3,6 +3,8 @@ package com.learning.engine.dao.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+
 /**
  * Extension mapper to standard <code>RowMapper</code> for simplifying resultset
  * mapping of nested object.
@@ -10,7 +12,7 @@ import java.sql.SQLException;
  * @author rk
  * @param <T> a type variable
  */
-public abstract class ChainedRowMapper<T> {
+public abstract class ChainedRowMapper<T> implements ParameterizedRowMapper<T>{
 	
 	/**
      * Mapping <code>ResultSet</code> to an object starting from <code>index</code>.
