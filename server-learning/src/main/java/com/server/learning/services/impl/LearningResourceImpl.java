@@ -12,10 +12,14 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MultivaluedMap;
 
+import org.apache.tapestry5.ioc.annotations.Inject;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 
+import com.learning.engine.json.PojoJsonMapper;
+import com.learning.engine.model.Bab;
+import com.learning.engine.service.BabService;
 import com.server.learning.form.FileUploadForm;
 import com.server.learning.services.LearningResource;
 import com.server.learning.util.FileUtils;
@@ -23,6 +27,9 @@ import com.server.learning.util.FileUtils;
 public class LearningResourceImpl implements LearningResource{
 	
 	private final String UPLOADED_FILE_PATH = "C:\\uploadedFile\\";
+	
+	@Inject
+	private BabService babService;
 
 	@Override
 	public String uploadTugas(@Context HttpServletRequest context,
@@ -87,6 +94,11 @@ public class LearningResourceImpl implements LearningResource{
             e.printStackTrace();
         }
 		return null;
+	}
+	
+	public String testBabDao(@Context HttpServletRequest context) {
+		Bab bab = babService.getBabWithMateri("Bab 1");
+		return PojoJsonMapper.toJson(bab);
 	}
 
 }

@@ -2,6 +2,7 @@ package com.server.learning.services;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -31,5 +32,10 @@ public interface LearningResource {
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	@Path("uploadTugas2")
 	public String uploadTugas2(@Context HttpServletRequest context, @MultipartForm FileUploadForm form);
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("cobaDao")
+	public String testBabDao(@Context HttpServletRequest context);
 	
 }
