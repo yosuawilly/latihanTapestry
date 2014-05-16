@@ -8,6 +8,6 @@ public interface BabDao extends GenericDao<Bab, Long>{
 	
 	public Bab getBabWithMateri(String labelBab);
 	public Bab getBabWithMateri2(String judulBab);
-	public List<Bab> getAllBabWithMateri(String labelBab);
+	public List<Bab> getAllBabWithMateri();
 
 }

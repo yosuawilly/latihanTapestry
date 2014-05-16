@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.learning.engine.dao.BabDao;
@@ -49,9 +48,7 @@ public class BabDaoImpl extends GenericDaoImpl<Bab, Long> implements BabDao{
 		List<Map<String, Object>> resultMap = getJdbcTemplate().queryForList(sql.toString(), labelBab);
 		if(resultMap.size() == 0) return null;
 		
-		List<Bab> babs = buildBabWithMateri(resultMap);
-		
-		return babs.get(0);
+		return buildBabWithMateri(resultMap).get(0);
 	}
 
 	@Override
@@ -62,36 +59,35 @@ public class BabDaoImpl extends GenericDaoImpl<Bab, Long> implements BabDao{
         .append("where b.id_bab=m.id_bab ")
         .append("and judul_bab = ? ");
 
-        try {
-			return getSimpleJdbcTemplate().queryForObject(sql.toString(), defaultMapper, judulBab);
-		} catch (EmptyResultDataAccessException e) {
-			e.printStackTrace();
-			return null;
-		}
+		List<Map<String, Object>> resultMap = getJdbcTemplate().queryForList(sql.toString(), judulBab);
+		if(resultMap.size() == 0) return null;
+		
+		return buildBabWithMateri(resultMap).get(0);
 	}
 
 	@Override
-	public List<Bab> getAllBabWithMateri(String labelBab) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Bab> getAllBabWithMateri() {
+		List<Map<String, Object>> resultMap = getJdbcTemplate().queryForList(
+				"select * from bab b, materi m where b.id_bab=m.id_bab order by b.id_bab");
+		return buildBabWithMateri(resultMap);
 	}
 	
 	private List<Bab> buildBabWithMateri(List<Map<String, Object>> resultMap) {
 		List<Bab> babs = new ArrayList<Bab>();
-		Long idTempBab = null;
+		long idTempBab = -1;
 		List<Materi> materis = null;
 		
 		Bab bab = null;
 		int current = -1;
 		for(Map<String, Object> map : resultMap) {
-			Long idBab = new Long(((Integer) map.get("id_bab")));
+			long idBab = Long.parseLong( String.valueOf(map.get("id_bab")) );
 			String label = (String) map.get("label_bab");
 			String judul = (String) map.get("judul_bab");
 			
-			Long idMateri = (Long) map.get("id_materi");
+			Long idMateri = Long.parseLong( String.valueOf(map.get("id_materi")) );
 			String judulMateri = (String) map.get("judul");
 			String isiMateri = (String) map.get("isi_materi");
-			int semester = (Integer) map.get("semester");
+			int semester = Integer.parseInt( String.valueOf(map.get("semester")) );
 			String url = (String) map.get("url");
 			
 			if(idBab != idTempBab) {

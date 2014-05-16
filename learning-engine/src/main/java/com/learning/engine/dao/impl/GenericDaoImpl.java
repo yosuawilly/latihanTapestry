@@ -25,8 +25,8 @@ public class GenericDaoImpl<T extends BaseObject, PK> extends SimpleJdbcDaoSuppo
     protected StringBuilder updateSql;
     private final String deleteSql;
 
-    private final String getSql;
-    private final String getAllSql;
+    protected final String getSql;
+    protected final String getAllSql;
     
     private final String primaryName;
 

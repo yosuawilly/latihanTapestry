@@ -31,8 +31,8 @@ public class BabServiceImpl extends GenericServiceImpl<Bab, Long> implements Bab
 	}
 
 	@Override
-	public List<Bab> getAllBabWithMateri(String labelBab) {
-		return babDao.getAllBabWithMateri(labelBab);
+	public List<Bab> getAllBabWithMateri() {
+		return babDao.getAllBabWithMateri();
 	}
 
 }
