@@ -97,8 +97,9 @@ public class LearningResourceImpl implements LearningResource{
 	}
 	
 	public String testBabDao(@Context HttpServletRequest context) {
-		Bab bab = babService.getBabWithMateri("Bab 1");
-		return PojoJsonMapper.toJson(bab);
+		//Bab bab = babService.getBabWithMateri("Bab 1");
+		List<Bab> babs = babService.getAll();
+		return PojoJsonMapper.toJson(babs);
 	}
 
 }
