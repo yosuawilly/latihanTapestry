@@ -1,5 +1,65 @@
-<html  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"> 
-<body>
-
-</body>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Login Server Learning</title>
+		<link rel="shortcut icon" href="${context:layout/icon.png}" />
+		<link type="text/css" rel="stylesheet" href="${context:layout/bootstrap.css}"/>
+		<link rel="stylesheet" type="text/css" href="${context:layout/style.css}" />
+	</head>
+	<body>
+		<div id="wrapper">
+			<center>
+				<img id="logo" src="${context:layout/images/header4.png}" />
+			</center>
+			<div id="page">
+				<center>
+					<div id="panellogintop">
+						<label class="title">User Login</label>
+					</div>
+					<div id="panelloginbottom" class="panelloginbottom">
+						<div class="login-image"></div>
+						<t:form autofocus="true">
+						<table border="0">
+							<tr>
+								<td>Username</td>
+								<td>:</td>
+								<td>
+									<input t:id="username" t:type="textfield" type="text" maxlength="10" style="height:27px;margin:0;"/>
+								</td>
+							</tr>
+							<tr>
+								<td>Password</td>
+								<td>:</td>
+								<td>
+									<input t:id="password" t:type="passwordfield" type="password" maxlength="6" style="height:27px;margin:0;"/>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3">
+									<input id="button-login" class="button-login" type="submit" value="Login"
+										style="background-size: 100% 110px; width: 100%; height: 30px; margin-top: 0px;" />
+								</td>
+							</tr>
+						</table>
+						</t:form>
+						<div style="clear: both;"></div>
+					</div>
+					<t:if test="error">
+					<div id="pesanerror">${error}</div>
+					</t:if>
+				</center>
+			</div>
+		</div>
+		<div id="footer">
+			<center>
+				<hr />
+				<p>E-Learning
+					Server Copyright &copy;
+					2013. All Right Reserved.
+				</p>
+				Design by Yosua Willy Handika
+			</center>
+		</div>
+	</body>
 </html>

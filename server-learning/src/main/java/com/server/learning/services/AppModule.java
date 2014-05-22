@@ -11,10 +11,10 @@ import org.apache.tapestry5.ioc.MethodAdviceReceiver;
 import org.apache.tapestry5.ioc.ObjectLocator;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
-import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.ioc.annotations.Match;
 import org.apache.tapestry5.plastic.MethodAdvice;
 import org.apache.tapestry5.plastic.MethodInvocation;
+import org.apache.tapestry5.services.ComponentRequestFilter;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
@@ -23,7 +23,9 @@ import org.slf4j.Logger;
 
 import com.learning.engine.BusinessException;
 import com.learning.engine.json.PojoJsonMapper;
+import com.server.learning.security.SecurityFilter;
 import com.server.learning.services.impl.AuthenticationResourceImpl;
+import com.server.learning.services.impl.AuthenticatorImpl;
 import com.server.learning.services.impl.LearningResourceImpl;
 
 /**
@@ -41,6 +43,7 @@ public class AppModule
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
     	binder.bind(AuthenticationResource.class, AuthenticationResourceImpl.class);
+    	binder.bind(Authenticator.class, AuthenticatorImpl.class);
     	binder.bind(LearningResource.class, LearningResourceImpl.class);
     }
     
@@ -155,14 +158,18 @@ public class AppModule
      * from the same module.  Without @Local, there would be an error due to the other service(s)
      * that implement RequestFilter (defined in other modules).
      */
-    public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
+    /*public void contributeRequestHandler(OrderedConfiguration<RequestFilter> configuration,
             @Local
             RequestFilter filter)
+    {*/
+    public static void contributeComponentRequestHandler(
+            OrderedConfiguration<ComponentRequestFilter> configuration)
     {
         // Each contribution to an ordered configuration has a name, When necessary, you may
         // set constraints to precisely control the invocation order of the contributed filter
         // within the pipeline.
         
-        configuration.add("Timing", filter);
+        //configuration.add("Timing", filter);
+    	configuration.addInstance("RequiresLogin", SecurityFilter.class);
     }
 }
