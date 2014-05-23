@@ -36,6 +36,9 @@ public class Login {
 	@InjectPage
 	private Index index;
 	
+	@InjectPage
+	private Home home;
+	
 	private Object nextPage;
 	
 	@Inject
@@ -60,7 +63,7 @@ public class Login {
 			error = "Username of password required";
 		} else {
 			if(authenticator.login(username, password)) {
-				nextPage = index;
+				nextPage = home;
 			} else {
 				error = "Username or password invalid";
 			}

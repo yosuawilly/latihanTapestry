@@ -1,0 +1,14 @@
+<html t:type="mylayout" title="Home"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+	<div id="main_content">
+		<span class="emb_left"></span>
+		<span class="emb_right"></span>
+		<span class="emb_botleft"></span>
+		<span class="emb_botright"></span>
+		<span class="emb_footrpt"></span>
+		<h2>Welcome E-Learning Server</h2>
+		<h3>Hello, Admin
+			<br />
+		</h3>
+	</div>
+</html>

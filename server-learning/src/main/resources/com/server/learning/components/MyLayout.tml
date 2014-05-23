@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+			<title>${title}</title>
+			<link rel="shortcut icon" href="${context:layout/images/logo3.png}" />
+			<link type="text/css" href="${context:layout/bootstrap.css}"
+				rel="stylesheet" />
+			<link type="text/css" href="${context:layout/style.css}" rel="stylesheet" />
+			<link type="text/css" href="${context:layout/jquery-ui-1.10.3.custom.css}"
+				rel="stylesheet" />
+			<!--<link type="text/css" href="css/demo_table.css" rel="stylesheet" /> -->
+			<script type="text/javascript" src="${context:layout/js/jquery.js}"></script>
+			<script type="text/javascript" src="${context:layout/js/jquery.json-2.4.js}"></script>
+			<script type="text/javascript" src="${context:layout/js/jquery-ui-1.10.3.custom.js}"></script>
+			<script type="text/javascript" src="${context:layout/js/nicEdit.js}"></script>
+	</head>
+	<body>
+		<div id="konfirmasi" style="display: none;">
+			<center>
+				<span>Apakah anda yakin akan menghapus data ini?</span>
+			</center>
+		</div>
+		<div id="wrapper">
+			<div id="page_home">
+				<div id="head">
+					<a href="" title="E-Learning" class="logo"></a>
+				</div>
+
+				<div id="main_menu" class="grid1">
+					<div id="mm_title">Main Menu</div>
+					<div id="mm_list_wraper">
+						<span class="emb_left"></span>
+						<span class="emb_right"></span>
+						<span class="emb_botleft"></span>
+						<span class="emb_botright"></span>
+						<span class="emb_footrpt"></span>
+						<div ID="mm_list">
+							<h3>
+								Master Data
+								<span class="arrowclose"></span>
+							</h3>
+							<div class="panel">
+								<ul>
+									<li><t:pagelink page="bab/Bab" title="Data Materi" class="${babCssClass}" >Data Bab</t:pagelink></li>
+									<li><t:pagelink page="materi/Materi" title="Data Materi" class="${materiCssClass}" >Data Materi</t:pagelink></li>
+									<li><t:pagelink page="tugas/Tugas" title="Data Tugas" class="${tugasCssClass}" >Data Tugas</t:pagelink></li>
+									<li><t:pagelink page="siswa/Siswa" title="Data Siswa" class="${siswaCssClass}" >Data Siswa</t:pagelink></li>
+									<li><t:pagelink page="tugas/UploadTugas" title="Data Upload Tugas" class="${uploadTugasCssClass}" >Data Upload Tugas</t:pagelink></li>
+									<li><t:pagelink page="quiz/Quiz" title="Data Quiz" class="${quizCssClass}" >Data Quiz</t:pagelink></li>
+								</ul>
+							</div>
+							<h3>
+								Input Data
+								<span class="arrowclose"></span>
+							</h3>
+							<div class="panel">
+								<ul>
+									<li><t:pagelink page="tugas/InputNilaiTugas" title="Input Nilai Tugas" >Input Nilai Tugas</t:pagelink></li>
+								</ul>
+							</div>
+							<h3>
+								Admin
+								<span class="arrowclose"></span>
+							</h3>
+							<div class="panel">
+								<ul>
+									<li><t:pagelink page="home" title="Home" class="${homeCssClass}" >Home</t:pagelink></li>
+									<!--<li><?php //echo anchor('auth/changepassword', 'Change Password', 
+										array('title'=>'Change Password')); ?></li> -->
+									<li><t:actionlink t:id="logout">Logout</t:actionlink></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- content -->
+				<t:body/>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		<div id="footer">
+			<center>
+				<hr />
+				<p>E-Learning
+					Server Copyright &copy;
+					2013. All Right Reserved.
+				</p>
+				Design by Yosua Willy Handika
+			</center>
+		</div>
+	</body>
+</html>
+<!-- <t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" 
+	xmlns:p="tapestry:parameter"> </t:container> -->
