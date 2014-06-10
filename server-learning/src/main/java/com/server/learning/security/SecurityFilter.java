@@ -15,6 +15,7 @@ import org.apache.tapestry5.services.RequestGlobals;
 import org.apache.tapestry5.services.Response;
 
 import com.server.learning.annotations.PublicPage;
+import com.server.learning.pages.Home;
 import com.server.learning.pages.Index;
 import com.server.learning.pages.Login;
 import com.server.learning.services.Authenticator;
@@ -28,7 +29,7 @@ public class SecurityFilter implements ComponentRequestFilter{
 	private final RequestGlobals requestGlobals;
 	private final Authenticator authenticator;
 	
-	private String homePage = Index.class.getSimpleName();
+	private String homePage = Home.class.getSimpleName();
 	private String loginPage = Login.class.getSimpleName();
 	
 	public SecurityFilter(PageRenderLinkSource renderLinkSource, ComponentSource componentSource,
@@ -60,7 +61,7 @@ public class SecurityFilter implements ComponentRequestFilter{
 	
 	private boolean dispatchedToLoginPage(String pageName) throws IOException{
 		if(authenticator.isLoggedIn()){
-			if(pageName.equalsIgnoreCase(loginPage)){
+			if(pageName.equalsIgnoreCase(loginPage) || pageName.equalsIgnoreCase(Index.class.getSimpleName())){
 				Link link = renderLinkSource.createPageRenderLink(homePage);
 				response.sendRedirect(link);
 				return true;

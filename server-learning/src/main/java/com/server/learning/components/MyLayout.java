@@ -31,7 +31,7 @@ public class MyLayout {
 	}
 	
 	public String getBabCssClass() {
-		if("Bab".equals(componentResources.getPageName())) {
+		if("bab/Bab".equals(componentResources.getPageName())) {
 			return "active";
 		} else return "";
 	}
@@ -43,31 +43,31 @@ public class MyLayout {
 	}
 	
 	public String getMateriCssClass() {
-		if("Materi".equals(componentResources.getPageName())) {
+		if("materi/Materi".equals(componentResources.getPageName())) {
 			return "active";
 		} else return "";
 	}
 	
 	public String getTugasCssClass() {
-		if("Tugas".equals(componentResources.getPageName())) {
+		if("tugas/Tugas".equals(componentResources.getPageName())) {
 			return "active";
 		} else return "";
 	}
 	
 	public String getUploadTugasCssClass() {
-		if("UploadTugas".equals(componentResources.getPageName())) {
+		if("tugas/UploadTugas".equals(componentResources.getPageName())) {
 			return "active";
 		} else return "";
 	}
 	
 	public String getQuizCssClass() {
-		if("Quiz".equals(componentResources.getPageName())) {
+		if("quiz/Quiz".equals(componentResources.getPageName())) {
 			return "active";
 		} else return "";
 	}
 	
 	public String getSiswaCssClass() {
-		if("Siswa".equals(componentResources.getPageName())) {
+		if("siswa/Siswa".equals(componentResources.getPageName())) {
 			return "active";
 		} else return "";
 	}

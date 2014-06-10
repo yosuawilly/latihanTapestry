@@ -1,5 +1,68 @@
-<html  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"> 
-<body>
-
-</body>
+<html t:type="MyLayout" title="Data Bab"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<div id="main_content">
+		<span class="emb_left"></span>
+		<span class="emb_right"></span>
+		<span class="emb_botleft"></span>
+		<span class="emb_botright"></span>
+		<span class="emb_footrpt"></span>
+		<h2>Data Bab</h2>
+		<div style="padding-left: 10px; padding-right: 10px; overflow-x:auto;">
+			<table class="table table-hover table-bordered" border="0"
+				cellpadding="0" cellspacing="0" style="width:100%">
+				<thead class="heading">
+					<th class="center">ID Bab</th>
+					<th class="center">Label Bab</th>
+					<th class="center">Judul Bab</th>
+					<th class="center">Action</th>
+				</thead>
+				<tr t:type="loop" t:source="babList" t:value="bab" t:index="loopIndex">
+					<td>${bab.id}</td>
+					<td>${bab.labelBab}</td>
+					<td>${bab.judulBab}</td>
+					<td></td>
+				</tr>
+			</table>
+			<hr />
+			<div style="float: left;">
+				<form style="padding: 0; margin: 0;" action="home/createbab"
+					method="post">
+					<button type="submit" class="btn btn-primary">
+						<i class="icon icon-plus"></i>
+						Tambah Bab
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function deleteData(a,id_bab){
+		$("#konfirmasi").dialog({
+		title: "Konfirmasi",
+		resizable: false,
+		position: 'center',
+		modal: true,
+		width: 360,
+		height: 140,
+		// hide: 'fold',
+		hide: 'explode',
+		show: 'clip',
+		buttons:[
+		{
+		text:"Ok",
+		click:function(){
+		window.location.href = $(a).attr('href');
+		}
+		},
+		{
+		text:"Batal",
+		click:function(){
+		$(this).dialog("close");
+		}
+		}
+		]
+		});
+		return false;
+		}
+	</script>
 </html>
