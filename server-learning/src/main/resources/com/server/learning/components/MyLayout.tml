@@ -5,16 +5,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 			<title>${title}</title>
 			<link rel="shortcut icon" href="${context:layout/images/logo3.png}" />
-			<link type="text/css" href="${context:layout/bootstrap.css}"
-				rel="stylesheet" />
-			<link type="text/css" href="${context:layout/style.css}" rel="stylesheet" />
-			<link type="text/css" href="${context:layout/jquery-ui-1.10.3.custom.css}"
-				rel="stylesheet" />
-			<!--<link type="text/css" href="css/demo_table.css" rel="stylesheet" /> -->
-			<script type="text/javascript" src="${context:layout/js/jquery.js}"></script>
-			<script type="text/javascript" src="${context:layout/js/jquery.json-2.4.js}"></script>
-			<script type="text/javascript" src="${context:layout/js/jquery-ui-1.10.3.custom.js}"></script>
-			<script type="text/javascript" src="${context:layout/js/nicEdit.js}"></script>
 	</head>
 	<body>
 		<div id="konfirmasi" style="display: none;">

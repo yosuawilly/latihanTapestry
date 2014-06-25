@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
-
 import com.learning.engine.service.BabService;
 import com.server.learning.base.BasePage;
 
@@ -24,6 +23,10 @@ public class Bab extends BasePage{
 	
 	void setupRender() {
 		babList = babService.getAll();
+	}
+	
+	void onDelete(long babId) {
+		System.out.println(String.valueOf(babId));
 	}
 	
 }

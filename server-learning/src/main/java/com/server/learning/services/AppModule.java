@@ -15,6 +15,7 @@ import org.apache.tapestry5.ioc.annotations.Match;
 import org.apache.tapestry5.plastic.MethodAdvice;
 import org.apache.tapestry5.plastic.MethodInvocation;
 import org.apache.tapestry5.services.ComponentRequestFilter;
+import org.apache.tapestry5.services.LibraryMapping;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
@@ -172,4 +173,10 @@ public class AppModule
         //configuration.add("Timing", filter);
     	configuration.addInstance("RequiresLogin", SecurityFilter.class);
     }
+    
+    public static void contributeComponentClassResolver(
+            Configuration<LibraryMapping> configuration) {
+        configuration.add(
+            new LibraryMapping("", "com.server.learning"));
+   }
 }

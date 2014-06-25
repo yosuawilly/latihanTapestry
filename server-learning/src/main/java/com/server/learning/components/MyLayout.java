@@ -2,6 +2,7 @@ package com.server.learning.components;
 
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -10,6 +11,10 @@ import org.apache.tapestry5.services.Response;
 
 import com.server.learning.services.Authenticator;
 
+@Import(library = {/*"context:layout/js/jquery.js",*/"context:layout/js/jquery.json-2.4.js",
+		"context:layout/js/jquery-ui-1.10.3.custom.js","context:layout/js/nicEdit.js",
+		"context:layout/js/MyJS.js"}, 
+		stylesheet = {"context:layout/bootstrap.css","context:layout/style.css","context:layout/jquery-ui-1.10.3.custom.css"})
 public class MyLayout {
 	
 	@Property
