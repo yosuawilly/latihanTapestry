@@ -27,6 +27,7 @@ public class Bab extends BasePage{
 	
 	void onDelete(long babId) {
 		System.out.println(String.valueOf(babId));
+		babService.remove(babId);
 	}
 	
 }

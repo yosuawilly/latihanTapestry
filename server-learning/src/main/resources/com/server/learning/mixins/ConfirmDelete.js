@@ -5,9 +5,36 @@ var ConfirmDelete = Class.create( {
 	},
 	
 	doConfirmDelete : function(e, clientId, message) {
-		if(!confirm(message)) {
-			e.stop();
-		}
+		e.stop();
+		jQuery("#konfirmasi").dialog({
+            title: "Konfirmasi",
+            resizable: false,
+            position: 'center',
+            modal: true,
+            width: 360,
+            height: 140,
+//            hide: 'fold',
+            hide: 'explode',
+            show: 'clip',
+            buttons:[
+                {
+                    text:"Ok",
+                    click:function(){
+                        window.location.href = jQuery("#"+clientId).attr('href');
+                    }
+                },
+                {
+                    text:"Batal",
+                    click:function(){
+                    	jQuery(this).dialog("close");
+                    }
+                }
+            ]
+        });
+
+//		if(!confirm(message)) {
+//			e.stop();
+//		}
 		
 		return false;
 	}
