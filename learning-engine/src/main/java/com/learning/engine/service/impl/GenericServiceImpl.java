@@ -53,7 +53,7 @@ public class GenericServiceImpl<T extends BaseObject, PK> implements GenericServ
     /**
      * {@inheritDoc}
      */
-	public void remove(PK id, Long userId) {
+	public void remove(PK id) {
 		dao.remove(id);
 	}
 

@@ -47,7 +47,7 @@ public interface GenericService<T extends BaseObject, PK> {
      * @param id the identifier (primary key) of the object to remove
      * @param userId user who remove the object
      */
-    void remove(PK id, Long userId);
+    void remove(PK id);
 
     /**
      * Get current page rows after sort and restriction being applied.
